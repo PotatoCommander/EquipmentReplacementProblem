@@ -8,30 +8,24 @@ namespace DealerServiceSystem.Business.Core.Models
 {
     public class DecisionGraph
     {
-        private AdjacencyGraph<string, Edge<string>> _graph;
-        private Dictionary<Edge<string>, double> _costs;
+        private AdjacencyGraph<GraphVertex, GraphEdge> _graph;
+        private Dictionary<GraphEdge, double> _costs;
         private GraphModel _graphModel;
 
         public DecisionGraph(GraphModel graphModel)
         {
-            _graph = new AdjacencyGraph<string, Edge<string>>();
-            _costs = new Dictionary<Edge<string>, double>();
+            _graph = new AdjacencyGraph<GraphVertex, GraphEdge>();
+            _costs = new Dictionary<GraphEdge, double>();
             _graphModel = graphModel;
 
             foreach (var edge in _graphModel.Edges)
             {
-                AddEdgeWithCosts(edge.Source.Name, edge.Target.Name, edge.Cost);
+                _graph.AddVerticesAndEdge(edge);
+                _costs.Add(edge, -edge.Cost);
             }
         }
 
-        private void AddEdgeWithCosts(string source, string target, int cost)
-        {
-            var edge = new Edge<string>(source, target);
-            _graph.AddVerticesAndEdge(edge);
-            _costs.Add(edge, -cost);
-        }
-
-        public void PrintShortestPath(string @from, string to)
+        public void PrintShortestPath(GraphVertex @from, GraphVertex to)
         {
             var edgeCost = AlgorithmExtensions.GetIndexer(_costs);
             var tryGetPath = _graph.ShortestPathsBellmanFord(edgeCost, @from, out _);
@@ -46,11 +40,14 @@ namespace DealerServiceSystem.Business.Core.Models
             }
         }
 
-        private static void PrintPath(string @from, string to, IEnumerable<Edge<string>> path)
+        private static void PrintPath(GraphVertex @from, GraphVertex to, IEnumerable<GraphEdge> path)
         {
-            Console.Write("Path found from {0} to {1}: {0}", @from, to);
+            Console.Write("Path found from {0} to {1}: {0}", @from.Name, to.Name);
             foreach (var e in path)
-                Console.Write(" > {0}", e.Target);
+            {
+                Console.Write(" > {0}", e.Name);
+            }
+
             Console.WriteLine();
         }
     }

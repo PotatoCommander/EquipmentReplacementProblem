@@ -82,7 +82,7 @@ namespace DealerServiceSystem.Business.Core
 
             var graph = new GraphModel(info, 1, 3);
             var dec = new DecisionGraph(graph);
-            dec.PrintShortestPath(graph.StartVertex.Name, "End");
+            dec.PrintShortestPath(graph.StartVertex, GraphModel.End);
         }
     }
 }

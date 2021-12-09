@@ -10,7 +10,7 @@ namespace DealerServiceSystem.Business.Core.Models.Graph
 
         public GraphVertex StartVertex { get; set; }
 
-        private static GraphVertex End { get; set; } = new GraphVertex() { Name = "End" };
+        public static GraphVertex End { get; set; } = new GraphVertex() { Name = "End" };
 
 
         private int _initialEquipmentAge { get; set; }
