@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using EquipmentReplacementProblem.Business.Dto;
 using EquipmentReplacementProblem.Business.Services;
+using EquipmentReplacementProblem.Render.Helpers;
 
 namespace EquipmentReplacementProblem.Controllers
 {
@@ -14,7 +15,8 @@ namespace EquipmentReplacementProblem.Controllers
         {
             var solver = new ErpBellmanFordSolutionService();
             var result = solver.FindOptimalStrategy(model);
-            return Ok(result);
+            var visualModel = ErpOutputToGraphRenderModelConverter.ConvertOutputToRenderModel(result);
+            return Ok(visualModel);
         }
     }
 }

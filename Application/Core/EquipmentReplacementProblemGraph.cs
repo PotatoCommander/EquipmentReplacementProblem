@@ -12,7 +12,7 @@ namespace EquipmentReplacementProblem.Business.Core
 
         public GraphVertex StartVertex { get; set; }
 
-        public static GraphVertex End { get; set; } = new GraphVertex() { Name = "End" };
+        public GraphVertex End { get; set; }
 
 
         private int _initialEquipmentAge { get; set; }
@@ -28,6 +28,13 @@ namespace EquipmentReplacementProblem.Business.Core
             Edges = new List<GraphEdge>();
             Vertices = new List<GraphVertex>();
 
+            End = new GraphVertex()
+            {
+                Name = "End",
+                YearOfDecision = info.Count + 1,
+                EquipmentAge = 3
+            };
+
             StartVertex = new GraphVertex()
             {
                 EquipmentAge = initialEquipmentAge,
@@ -41,6 +48,7 @@ namespace EquipmentReplacementProblem.Business.Core
         {
             vertex.YearOfDecision = yearOfDecision;
             vertex.Name = $"[Dec {yearOfDecision} EqAge {vertex.EquipmentAge}]";
+            Vertices.Add(vertex);
 
             if (yearOfDecision + _initialEquipmentAge > _equipmentInformation.Count)
             {

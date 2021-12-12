@@ -27,7 +27,7 @@ namespace EquipmentReplacementProblem.Business.Core.Algorithms
                 erpInputDto.EquipmentAgeAtStart);
 
             _startVertex = _erpGraph.StartVertex;
-            _endVertex = EquipmentReplacementProblemGraph.End;
+            _endVertex = _erpGraph.End;
 
             foreach (var edge in _erpGraph.Edges)
             {

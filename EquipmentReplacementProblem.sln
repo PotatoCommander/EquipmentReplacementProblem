@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquipmentReplacementProblem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentReplacementProblem", "EquipmentReplacementProblem\EquipmentReplacementProblem.csproj", "{DF95B5B1-2B59-49AB-8530-BD9EF2CC2912}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentReplacementProblem.Render", "EquipmentReplacementProblem.Render\EquipmentReplacementProblem.Render.csproj", "{A425683C-D45B-45BD-BE84-16F16399EE73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{DF95B5B1-2B59-49AB-8530-BD9EF2CC2912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF95B5B1-2B59-49AB-8530-BD9EF2CC2912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF95B5B1-2B59-49AB-8530-BD9EF2CC2912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A425683C-D45B-45BD-BE84-16F16399EE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A425683C-D45B-45BD-BE84-16F16399EE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A425683C-D45B-45BD-BE84-16F16399EE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A425683C-D45B-45BD-BE84-16F16399EE73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F1CD9F40-1419-4815-8D04-867800F99F69} = {85DC5001-B2EA-461F-BE2B-BAA9275947A8}
 		{DF95B5B1-2B59-49AB-8530-BD9EF2CC2912} = {77ED44FE-011F-4AF7-A84A-BE3838CBEABB}
+		{A425683C-D45B-45BD-BE84-16F16399EE73} = {85DC5001-B2EA-461F-BE2B-BAA9275947A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36467581-7932-4008-ADB9-5037C5CCC56B}
