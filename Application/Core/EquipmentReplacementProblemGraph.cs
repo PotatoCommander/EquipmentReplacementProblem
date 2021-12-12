@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using DealerServiceSystem.Business.Core.Models.Graph;
+using DealerServiceSystem.Business.Dto;
 
-namespace DealerServiceSystem.Business.Core.Models.Graph
+namespace DealerServiceSystem.Business.Core
 {
-    public class GraphModel
+    public class EquipmentReplacementProblemGraph
     {
         public List<GraphEdge> Edges { get; set; }
 
@@ -14,14 +16,14 @@ namespace DealerServiceSystem.Business.Core.Models.Graph
 
 
         private int _initialEquipmentAge { get; set; }
-        private Dictionary<int, AtomicEquipmentInfo> _equipmentInformation { get; set; }
-        private AtomicEquipmentInfo _equipmentInfoAtStart { get; set; }
+        private Dictionary<int, EquipmentServiceInformation> _equipmentInformation { get; set; }
+        private EquipmentServiceInformation EquipmentUsageInfoAtStart { get; set; }
 
-        public GraphModel(EquipmentUsageInformation info, int firstYearOfDecision, int initialEquipmentAge)
+        public EquipmentReplacementProblemGraph(Dictionary<int, EquipmentServiceInformation> info, int firstYearOfDecision, int initialEquipmentAge)
         {
             _initialEquipmentAge = initialEquipmentAge;
-            _equipmentInformation = info.EquipmentInfo;
-            _equipmentInfoAtStart = info.EquipmentInfo[0];
+            _equipmentInformation = info;
+            EquipmentUsageInfoAtStart = info[0];
 
             Edges = new List<GraphEdge>();
             Vertices = new List<GraphVertex>();
@@ -58,10 +60,10 @@ namespace DealerServiceSystem.Business.Core.Models.Graph
                 return;
             }
 
-            var atomicEquipmentInfo = _equipmentInformation[vertex.EquipmentAge];
+            var equipmentServiceInformation = _equipmentInformation[vertex.EquipmentAge];
 
 
-            var keepCost = atomicEquipmentInfo.Income - atomicEquipmentInfo.UsageExpenses;
+            var keepCost = equipmentServiceInformation.Income - equipmentServiceInformation.ServiceExpenses;
             vertex.Keep = new GraphVertex
             {
                 EquipmentAge = vertex.EquipmentAge + 1,
@@ -73,10 +75,10 @@ namespace DealerServiceSystem.Business.Core.Models.Graph
                 $"Keep: year {yearOfDecision}, eq age {vertex.EquipmentAge}"));
 
 
-            var replaceCost = _equipmentInfoAtStart.Income 
-                              - _equipmentInfoAtStart.UsageExpenses 
-                              - atomicEquipmentInfo.NewEquipmentCost
-                              + atomicEquipmentInfo.SellEquipmentCost;
+            var replaceCost = EquipmentUsageInfoAtStart.Income 
+                              - EquipmentUsageInfoAtStart.ServiceExpenses 
+                              - equipmentServiceInformation.NewEquipmentCost
+                              + equipmentServiceInformation.SellEquipmentCost;
             vertex.Replace = new GraphVertex
             {
                 EquipmentAge = 1

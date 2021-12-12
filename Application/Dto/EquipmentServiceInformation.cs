@@ -1,10 +1,10 @@
-﻿namespace DealerServiceSystem.Business.Core.Models
+﻿namespace DealerServiceSystem.Business.Dto
 {
-    public class AtomicEquipmentInfo
+    public class EquipmentServiceInformation
     {
         public int Income { get; set; }
 
-        public int UsageExpenses { get; set; }
+        public int ServiceExpenses { get; set; }
 
         public int NewEquipmentCost { get; set; }
 
