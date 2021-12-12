@@ -1,6 +1,6 @@
-﻿using DealerServiceSystem.Business.Dto;
+﻿using EquipmentReplacementProblem.Business.Dto;
 
-namespace DealerServiceSystem.Business.Services.Interfaces
+namespace EquipmentReplacementProblem.Business.Services.Interfaces
 {
     public interface IErpSolutionService
     {

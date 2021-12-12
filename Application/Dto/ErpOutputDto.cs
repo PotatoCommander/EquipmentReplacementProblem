@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using DealerServiceSystem.Business.Core.Models.Graph;
+using EquipmentReplacementProblem.Business.Core.Models.Graph;
 
-namespace DealerServiceSystem.Business.Dto
+namespace EquipmentReplacementProblem.Business.Dto
 {
     public class ErpOutputDto
     {

@@ -1,6 +1,6 @@
 ﻿using QuikGraph;
 
-namespace DealerServiceSystem.Business.Core.Models.Graph
+namespace EquipmentReplacementProblem.Business.Core.Models.Graph
 {
     public class GraphEdge : IEdge<GraphVertex>
     {

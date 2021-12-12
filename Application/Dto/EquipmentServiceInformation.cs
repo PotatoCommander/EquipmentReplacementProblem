@@ -1,4 +1,4 @@
-﻿namespace DealerServiceSystem.Business.Dto
+﻿namespace EquipmentReplacementProblem.Business.Dto
 {
     public class EquipmentServiceInformation
     {

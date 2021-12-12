@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DealerServiceSystem.Business.Dto
+namespace EquipmentReplacementProblem.Business.Dto
 {
     public class ErpInputDto
     {

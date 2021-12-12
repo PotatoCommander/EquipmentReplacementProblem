@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DealerServiceSystem.Business.Core.Models.Graph;
-using DealerServiceSystem.Business.Dto;
+using EquipmentReplacementProblem.Business.Core.Models.Graph;
+using EquipmentReplacementProblem.Business.Dto;
 using QuikGraph;
 using QuikGraph.Algorithms;
 
-namespace DealerServiceSystem.Business.Core.Algorithms
+namespace EquipmentReplacementProblem.Business.Core.Algorithms
 {
     internal class ErpBellmanFord
     {

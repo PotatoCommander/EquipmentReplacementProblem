@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using DealerServiceSystem.Business.Core.Models.Graph;
-using DealerServiceSystem.Business.Dto;
+using EquipmentReplacementProblem.Business.Core.Models.Graph;
+using EquipmentReplacementProblem.Business.Dto;
 
-namespace DealerServiceSystem.Business.Core
+namespace EquipmentReplacementProblem.Business.Core
 {
     public class EquipmentReplacementProblemGraph
     {

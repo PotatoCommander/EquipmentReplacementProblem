@@ -1,8 +1,8 @@
-﻿using DealerServiceSystem.Business.Core.Algorithms;
-using DealerServiceSystem.Business.Dto;
-using DealerServiceSystem.Business.Services.Interfaces;
+﻿using EquipmentReplacementProblem.Business.Core.Algorithms;
+using EquipmentReplacementProblem.Business.Dto;
+using EquipmentReplacementProblem.Business.Services.Interfaces;
 
-namespace DealerServiceSystem.Business.Services
+namespace EquipmentReplacementProblem.Business.Services
 {
     public class ErpBellmanFordSolutionService : IErpSolutionService
     {
