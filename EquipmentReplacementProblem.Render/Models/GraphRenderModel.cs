@@ -9,5 +9,7 @@ namespace EquipmentReplacementProblem.Render.Models
         public List<CartesianEdge> Lines { get; set; }
 
         public List<CartesianPoint> Points { get; set; }
+
+        public List<CartesianEdge> Path { get; set; }
     }
 }

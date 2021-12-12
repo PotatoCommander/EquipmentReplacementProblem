@@ -44,10 +44,29 @@ namespace EquipmentReplacementProblem.Render.Helpers
                 });
             }
 
+            var path = new List<CartesianEdge>();
+            foreach (var edge in erpOutputDto.OptimalPath)
+            {
+                path.Add(new CartesianEdge()
+                {
+                    From = new CartesianPoint()
+                    {
+                        X = edge.Source.YearOfDecision * renderMultiplier,
+                        Y = edge.Source.EquipmentAge * renderMultiplier,
+                    },
+                    To = new CartesianPoint()
+                    {
+                        X = edge.Target.YearOfDecision * renderMultiplier,
+                        Y = edge.Target.EquipmentAge * renderMultiplier,
+                    }
+                });
+            }
+
             var renderModel = new GraphRenderModel()
             {
                 Lines = lines.Distinct(new CartesianEdgeEqualityComparer()).ToList(),
-                Points = points.Distinct(new CartesianPointEqualityComparer()).ToList()
+                Points = points.Distinct(new CartesianPointEqualityComparer()).ToList(),
+                Path = path,
             };
 
             return renderModel;

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\EquipmentReplacementProblem.Business.csproj" />
+    <ProjectReference Include="..\EquipmentReplacementProblem.Render\EquipmentReplacementProblem.Render.csproj" />
+  </ItemGroup>
+
+</Project>
