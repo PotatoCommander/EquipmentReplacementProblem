@@ -1,0 +1,45 @@
+﻿@using EquipmentReplacementProblem.Business.Dto
+@model InputViewModel
+<form class="card" method="post" enctype="multipart/form-data" asp-antiforgery="true">
+    <div class="card-header">
+        <h5 class="mb-0">Please input data.</h5>
+    </div>
+    <div class="card-body bg-light">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="row">
+            <label class="col-sm-2"> Year </label>
+            <label class="col-sm"> Income </label>
+            <label class="col-sm"> Expenses </label>
+            <label class="col-sm"> Sell cost </label>
+            <label class="col-sm"> New equipment cost </label>
+        </div>
+
+        @for (var i = 0; i < Model.YearsCount; i++)
+        {
+            <div class="row">
+                <label class="col-sm-2">@i</label>
+                <div class="col-sm">
+                    @Html.TextBoxFor(a => Model.Infos[i].Income)
+                </div>
+
+                <div class="col-sm">
+                    @Html.TextBoxFor(a => Model.Infos[i].ServiceExpenses)
+                </div>
+
+                <div class="col-sm">
+                    @Html.TextBoxFor(a => Model.Infos[i].SellEquipmentCost)
+                </div>
+
+                <div class="col-sm">
+                    @Html.TextBoxFor(a => Model.Infos[i].NewEquipmentCost)
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="card-footer">
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-falcon-primary btn-sm">Go to input page.</button>
+            </div>
+    </div>
+</form>

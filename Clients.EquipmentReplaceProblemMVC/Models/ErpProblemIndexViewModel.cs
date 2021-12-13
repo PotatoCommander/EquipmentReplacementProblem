@@ -10,5 +10,7 @@ namespace Clients.EquipmentReplaceProblemMVC.Models
     public class ErpProblemIndexViewModel
     {
         public byte[] GraphImage { get; set; }
+
+        public string Path { get; set; }
     }
 }

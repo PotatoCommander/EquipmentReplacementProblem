@@ -1,0 +1,35 @@
+﻿@model InputSettingsViewModel
+
+<form class="card" method="post" enctype="multipart/form-data" asp-antiforgery="true">
+    <div class="card-header">
+        <h5 class="mb-0">At this page you can solve equipment replacement problem. </h5>
+    </div>
+    <div class="card-body bg-light">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group">
+            <label asp-for="EquipmentAgeAtStart"></label>
+            <input asp-for="EquipmentAgeAtStart" class="form-control" />
+            <span asp-validation-for="EquipmentAgeAtStart"></span>
+        </div>
+
+        
+        <div class="form-group">
+            <label asp-for="StartYear"></label>
+            <input asp-for="StartYear" class="form-control" />
+            <span asp-validation-for="StartYear"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="YearsCount"></label>
+            <input asp-for="YearsCount" class="form-control" />
+            <span asp-validation-for="YearsCount"></span>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-falcon-primary btn-sm">Go to input page.</button>
+        </div>
+    </div>
+</form>
