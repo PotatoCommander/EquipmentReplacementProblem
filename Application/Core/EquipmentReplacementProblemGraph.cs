@@ -32,7 +32,7 @@ namespace EquipmentReplacementProblem.Business.Core
             {
                 Name = "End",
                 YearOfDecision = info.Count + 1,
-                EquipmentAge = 3
+                EquipmentAge = info.Count / 2
             };
 
             StartVertex = new GraphVertex()
@@ -80,7 +80,7 @@ namespace EquipmentReplacementProblem.Business.Core
             Edges.Add(new GraphEdge(vertex,
                 vertex.Keep,
                 keepCost,
-                $"Keep: year {yearOfDecision}, eq age {vertex.EquipmentAge}"));
+                $"+[Keep] Year: {yearOfDecision}, Equipment age: {vertex.EquipmentAge}."));
 
 
             var replaceCost = EquipmentUsageInfoAtStart.Income 
@@ -95,7 +95,7 @@ namespace EquipmentReplacementProblem.Business.Core
             Edges.Add(new GraphEdge(vertex,
                 vertex.Replace,
                 replaceCost,
-                $"Replace: year {yearOfDecision}, eq age {vertex.EquipmentAge}"
+                $"-[Replace] Year: {yearOfDecision}, Equipment age: {vertex.EquipmentAge}."
             ));
         }
     }

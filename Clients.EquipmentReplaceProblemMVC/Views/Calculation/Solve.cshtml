@@ -1,0 +1,15 @@
+﻿@model ErpProblemIndexViewModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <h5 class="mb-0">Equipment replacement problem solution</h5>
+</div>
+    </div>
+    <div class="card-body bg-light" style="border: 1px solid black;">
+        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.GraphImage))" alt="" />
+        <label class="col-sm-9" style="margin-left: 50px">Y axis - Equipment age, X axis - year of decision</label>
+        <h6 class="mb-0" style="margin-top: 30px">Optimal strategy:</h6>
+        <label class="col-sm-5" style="white-space: pre-line">@Model.Path</label>
+    </div>
+</div>

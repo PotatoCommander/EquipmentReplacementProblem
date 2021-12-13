@@ -11,5 +11,9 @@ namespace EquipmentReplacementProblem.Render.Models
         public List<CartesianPoint> Points { get; set; }
 
         public List<CartesianEdge> Path { get; set; }
+
+        public CartesianPoint SellPoint { get; set; }
+
+        public int MarksCount { get; set; }
     }
 }

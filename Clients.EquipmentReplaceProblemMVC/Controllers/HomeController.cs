@@ -19,7 +19,7 @@ namespace Clients.EquipmentReplaceProblemMVC.Controllers
         [HttpPost]
         public IActionResult Index(InputSettingsViewModel model)
         {
-            return RedirectToAction("Input", "Input", model);
+            return RedirectToAction("Calculate", "Calculation", model);
         }
     }
 }

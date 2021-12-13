@@ -62,11 +62,18 @@ namespace EquipmentReplacementProblem.Render.Helpers
                 });
             }
 
+            var endPoint = erpOutputDto.OptimalPath.Last(); 
+
             var renderModel = new GraphRenderModel()
             {
                 Lines = lines.Distinct(new CartesianEdgeEqualityComparer()).ToList(),
                 Points = points.Distinct(new CartesianPointEqualityComparer()).ToList(),
                 Path = path,
+                SellPoint = new CartesianPoint()
+                {
+                    X = endPoint.Target.YearOfDecision * renderMultiplier,
+                    Y = endPoint.Target.EquipmentAge * renderMultiplier,
+                }
             };
 
             return renderModel;

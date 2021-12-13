@@ -12,21 +12,21 @@ using Microsoft.Extensions.Logging;
 
 namespace Clients.EquipmentReplaceProblemMVC.Controllers
 {
-    public class InputController : Controller
+    public class CalculationController : Controller
     {
-        private readonly ILogger<InputController> _logger;
+        private readonly ILogger<CalculationController> _logger;
         private readonly IErpSolutionService _erpSolutionService;
 
-        public InputController(ILogger<InputController> logger, IErpSolutionService erpSolutionService)
+        public CalculationController(ILogger<CalculationController> logger, IErpSolutionService erpSolutionService)
         {
             _logger = logger;
             _erpSolutionService = erpSolutionService;
         }
 
         [HttpGet]
-        public IActionResult Input(InputSettingsViewModel inputSettings)
+        public IActionResult Calculate(InputSettingsViewModel inputSettings)
         {
-            return View(new InputViewModel()
+            return View("~/Views/Calculation/Input.cshtml", new InputViewModel()
             {
                 EquipmentAgeAtStart = inputSettings.EquipmentAgeAtStart,
                 StartYear = inputSettings.StartYear,
@@ -37,7 +37,7 @@ namespace Clients.EquipmentReplaceProblemMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Input(InputViewModel inputModel)
+        public IActionResult Calculate(InputViewModel inputModel)
         {
             var dictionary = new Dictionary<int, EquipmentServiceInformation>();
             for (var i = 0; i < inputModel.Infos.Count; i++)
@@ -56,10 +56,10 @@ namespace Clients.EquipmentReplaceProblemMVC.Controllers
             var converted = ErpOutputToGraphRenderModelConverter.ConvertOutputToRenderModel(solution);
             var renderer = new GraphRender();
             var bmp = renderer.DrawGraph(converted);
-            return View("~/Views/ErpProblem/Solve.cshtml", new ErpProblemIndexViewModel()
+            return View("~/Views/Calculation/Solve.cshtml", new ErpProblemIndexViewModel()
             {
                 GraphImage = BitmapToBytes(bmp),
-                Path = solution.OptimalPath.Select(x => x.Name).Aggregate("", (current, next) => current + "----> " + next) 
+                Path = solution.OptimalPath.Select(x => x.Name).Aggregate("", (current, next) => current + "\n" + next) 
             });
         }
 
